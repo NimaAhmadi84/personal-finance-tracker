@@ -5,7 +5,7 @@ import RegisterForm from "./RegisterForm";
 import LoginForm from "./LoginForm";
 
 export default function AuthPage() {
-  const [activeTab, setActiveTab] = useState("register"); // فرم پیش‌فرض Register فعال باشد
+  const [activeTab, setActiveTab] = useState("register");
 
   return (
     <>

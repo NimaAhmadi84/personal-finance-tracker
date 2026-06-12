@@ -254,6 +254,12 @@ header h1 {
 }
 
 @media (hover: none) and (pointer: coarse) {
+    .btn-outline-danger,
+    .btn-primary,
+    .toggle-password {
+        touch-action: manipulation;
+    }
+
     .btn-outline-danger:not(.active):hover {
         background-color: transparent;
         color: var(--primary);

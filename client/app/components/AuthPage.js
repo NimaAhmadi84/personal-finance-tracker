@@ -13,6 +13,7 @@ export default function AuthPage() {
         <h1 className="display-4 fw-bold text-uppercase text-white">Welcome</h1>
         <div className="d-flex justify-content-center gap-3 mt-4">
           <button
+            type="button"
             className={`btn btn-outline-danger rounded-pill px-4 py-2 fw-bold ${
               activeTab === "register" ? "active" : ""
             }`}
@@ -21,6 +22,7 @@ export default function AuthPage() {
             Register
           </button>
           <button
+            type="button"
             className={`btn btn-outline-danger rounded-pill px-4 py-2 fw-bold ${
               activeTab === "login" ? "active" : ""
             }`}

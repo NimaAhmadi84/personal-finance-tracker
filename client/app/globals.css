@@ -17,26 +17,46 @@
 *::before,
 *::after {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 body {
-    margin: 0;
-    padding: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: var(--bg-body);
     color: var(--text-main);
-}
-
-main {
     min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 2rem 1rem;
 }
 
-/* کارت‌های فرم */
+/* ===== HEADER ===== */
+header h1 {
+    letter-spacing: 2px;
+}
+
+/* ===== دکمه‌های تب Register/Login (شبیه nav قدیم) ===== */
+.btn-outline-danger {
+    background-color: transparent;
+    color: var(--primary);
+    border: 2px solid var(--primary);
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-radius: 30px;
+    padding: 0.7rem 2rem;
+    transition: all 0.3s ease;
+}
+
+.btn-outline-danger.active {
+    background-color: var(--primary) !important;
+    color: var(--bg-body) !important;
+}
+
+.btn-outline-danger:not(.active):hover {
+    background-color: var(--primary);
+    color: var(--bg-body);
+}
+
+/* ===== CARD (جایگزین main قدیم) ===== */
 .card {
     background-color: var(--bg-card);
     border-radius: 16px;
@@ -55,17 +75,23 @@ main {
     letter-spacing: 1px;
 }
 
-/* فیلدهای ورودی */
+/* ===== فیلدهای ورودی (حفظ استایل قدیم) ===== */
 .form-label {
-    color: var(--text-muted);
-    font-weight: bold;
     font-size: 0.9rem;
+    font-weight: bold;
+    color: var(--text-muted);
+    letter-spacing: 0.5px;
 }
 
 .form-control {
     background-color: var(--bg-body) !important;
     border: 2px solid var(--border-color) !important;
+    border-radius: 8px;
+    padding: 0.8rem 1rem;
+    font-size: 1rem;
     color: var(--text-main) !important;
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .form-control:focus {
@@ -73,7 +99,19 @@ main {
     box-shadow: 0 0 10px rgba(255, 26, 26, 0.4) !important;
 }
 
-/* دکمه‌ی ارسال */
+/* فیکس اتوفیل گوگل (دقیقاً مثل نسخه اصلی) */
+.form-control:-webkit-autofill,
+.form-control:-webkit-autofill:hover,
+.form-control:-webkit-autofill:focus,
+.form-control:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 30px var(--bg-body) inset !important;
+    -webkit-text-fill-color: var(--text-main) !important;
+    caret-color: var(--text-main);
+    border: 2px solid var(--border-color) !important;
+    transition: background-color 5000s ease-in-out 0s;
+}
+
+/* ===== دکمه‌ی ارسال ===== */
 .btn-primary {
     background-color: var(--primary) !important;
     border: none !important;
@@ -81,39 +119,22 @@ main {
     text-transform: uppercase;
     letter-spacing: 1px;
     border-radius: 30px !important;
-    padding: 0.75rem;
-    transition: background-color 0.3s ease;
+    padding: 0.8rem;
+    font-size: 1.1rem;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-top: 0.5rem;
 }
 
 .btn-primary:hover {
     background-color: var(--primary-hover) !important;
+    transform: scale(1.02);
 }
 
-/* استایل دکمه‌های تب (Register / Login) */
-.btn-outline-danger {
-    background-color: transparent;
-    color: var(--primary);
-    border: 2px solid var(--primary);
-    font-weight: bold;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    border-radius: 30px;
-    padding: 0.7rem 2rem;
-    transition: all 0.3s ease;
+.btn-primary:active {
+    transform: scale(0.98);
 }
 
-.btn-outline-danger.active {
-    background-color: var(--primary) !important;
-    border-color: var(--primary) !important;
-    color: var(--bg-body) !important;
-}
-
-.btn-outline-danger:hover {
-    background-color: var(--primary);
-    color: var(--bg-body);
-}
-
-/* نمایشگر قدرت رمز عبور */
+/* ===== نمایشگر قدرت رمز عبور ===== */
 .password-strength-meter {
     width: 100%;
     height: 6px;
@@ -130,10 +151,10 @@ main {
     transition: width 0.3s ease, background-color 0.3s ease;
 }
 
-/* نیازمندی‌های رمز عبور */
+/* ===== نیازمندی‌های رمز عبور ===== */
 .password-requirements {
     list-style: none;
-    padding-left: 0;
+    padding: 0;
     margin-top: 0.5rem;
     font-size: 0.8rem;
     color: var(--text-dim);
@@ -151,9 +172,13 @@ main {
     color: var(--primary);
 }
 
-/* دکمه‌ی نمایش رمز */
+/* ===== دکمه‌ی نمایش رمز ===== */
 .password-wrapper {
     position: relative;
+}
+
+.password-wrapper input {
+    padding-right: 3rem;
 }
 
 .toggle-password {
@@ -168,13 +193,14 @@ main {
     color: var(--text-muted);
     padding: 5px;
     line-height: 1;
+    transition: color 0.2s ease;
 }
 
 .toggle-password:hover {
     color: var(--primary);
 }
 
-/* استایل فیلد تأیید رمز عبور */
+/* ===== فیلد تأیید رمز عبور ===== */
 .neutral-input {
     border-color: var(--border-color) !important;
     box-shadow: none !important;
@@ -188,4 +214,55 @@ main {
 .invalid-input {
     border-color: var(--primary) !important;
     box-shadow: 0 0 10px rgba(255, 26, 26, 0.4) !important;
+}
+
+/* ========== RESPONSIVE (همان Media Query های قدیم) ========== */
+@media (min-width: 1400px) {
+    .card {
+        max-width: 480px;
+        padding: 2.5rem;
+    }
+    .card h2 { font-size: 2rem; }
+    .form-control { padding: 1rem 1.2rem; font-size: 1.1rem; }
+    .btn-primary { padding: 1rem; font-size: 1.2rem; }
+}
+
+@media (max-width: 1024px) {
+    .card { max-width: 400px; }
+}
+
+@media (max-width: 768px) {
+    .card { padding: 1.8rem; }
+    .card h2 { font-size: 1.6rem; }
+    .form-label { font-size: 0.85rem; }
+    .form-control { padding: 0.75rem 0.9rem; font-size: 0.95rem; }
+    .btn-primary { padding: 0.75rem; font-size: 1rem; }
+    .toggle-password { font-size: 1.2rem; right: 8px; }
+    .password-requirements { font-size: 0.75rem; }
+}
+
+@media (max-width: 480px) {
+    .btn-outline-danger { padding: 0.45rem 1rem; font-size: 0.8rem; }
+    .card { padding: 1.2rem; }
+    .card h2 { font-size: 1.4rem; }
+    .form-label { font-size: 0.8rem; }
+    .form-control { padding: 0.65rem 0.75rem; font-size: 0.9rem; border-radius: 6px; }
+    .btn-primary { padding: 0.7rem; font-size: 0.95rem; }
+    .toggle-password { font-size: 1.1rem; right: 6px; }
+    .password-strength-meter { height: 5px; }
+    .password-requirements { font-size: 0.7rem; }
+}
+
+@media (hover: none) and (pointer: coarse) {
+    .btn-outline-danger:not(.active):hover {
+        background-color: transparent;
+        color: var(--primary);
+    }
+    .btn-primary:hover {
+        background-color: var(--primary) !important;
+        transform: none;
+    }
+    .toggle-password:hover {
+        color: var(--text-muted);
+    }
 }

@@ -9,12 +9,11 @@ export default function LoginForm() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // TODO: ارسال به API
     alert(`Logged in as ${email}`);
   };
 
   return (
-    <div className="card" style={{ width: "100%", maxWidth: "420px" }}>
+    <div className="card">
       <h2>Welcome Back</h2>
       <form onSubmit={handleSubmit}>
         <div className="mb-3">
@@ -22,6 +21,7 @@ export default function LoginForm() {
           <input
             type="email" id="login-email" className="form-control"
             placeholder="example@email.com" required
+            autoComplete="email"
             value={email} onChange={(e) => setEmail(e.target.value)}
           />
         </div>
@@ -33,6 +33,7 @@ export default function LoginForm() {
               type={showPassword ? "text" : "password"}
               id="login-password" className="form-control"
               placeholder="Enter your password" required
+              autoComplete="current-password"
               value={password} onChange={(e) => setPassword(e.target.value)}
             />
             <button type="button" className="toggle-password"
@@ -43,7 +44,7 @@ export default function LoginForm() {
           </div>
         </div>
 
-        <button type="submit" className="btn btn-primary w-100 mt-3">Log In</button>
+        <button type="submit" className="btn btn-primary w-100">Log In</button>
       </form>
     </div>
   );

@@ -30,14 +30,7 @@ export default function RegisterForm() {
     const hasSpecial = /[!@#$%^&*(),.?":{}|<>]/.test(pass);
     const hasNoSpace = !/\s/.test(pass);
 
-    setReqs({
-      length: hasLength,
-      lower: hasLower,
-      upper: hasUpper,
-      number: hasNumber,
-      special: hasSpecial,
-      noSpace: hasNoSpace,
-    });
+    setReqs({ length: hasLength, lower: hasLower, upper: hasUpper, number: hasNumber, special: hasSpecial, noSpace: hasNoSpace });
 
     const passed = [hasLength, hasLower, hasUpper, hasNumber, hasSpecial, hasNoSpace].filter(Boolean).length;
 
@@ -52,6 +45,7 @@ export default function RegisterForm() {
     }
   }, [password]);
 
+  // کلاس فیلد تأیید
   const confirmClass = !confirm
     ? "form-control neutral-input"
     : confirm === password
@@ -64,32 +58,36 @@ export default function RegisterForm() {
       alert("Passwords do not match!");
       return;
     }
-    // TODO: ارسال به API
     alert(`Registered as ${username}`);
   };
 
   return (
-    <div className="card" style={{ width: "100%", maxWidth: "420px" }}>
+    <div className="card">
       <h2>Create Account</h2>
       <form onSubmit={handleSubmit}>
+        {/* Username */}
         <div className="mb-3">
           <label htmlFor="reg-name" className="form-label">Username</label>
           <input
             type="text" id="reg-name" className="form-control"
             placeholder="Enter your username" required
+            autoComplete="username"
             value={username} onChange={(e) => setUsername(e.target.value)}
           />
         </div>
 
+        {/* Email */}
         <div className="mb-3">
           <label htmlFor="reg-email" className="form-label">Email</label>
           <input
             type="email" id="reg-email" className="form-control"
             placeholder="example@email.com" required
+            autoComplete="email"
             value={email} onChange={(e) => setEmail(e.target.value)}
           />
         </div>
 
+        {/* Password */}
         <div className="mb-3">
           <label htmlFor="reg-password" className="form-label">Password</label>
           <div className="password-wrapper">
@@ -97,7 +95,9 @@ export default function RegisterForm() {
               type={showPassword ? "text" : "password"}
               id="reg-password" className="form-control"
               placeholder="Enter your password" required
+              autoComplete="new-password"
               value={password} onChange={(e) => setPassword(e.target.value)}
+              onCopy={(e) => e.preventDefault()}
             />
             <button type="button" className="toggle-password"
               onClick={() => setShowPassword(!showPassword)}
@@ -106,7 +106,7 @@ export default function RegisterForm() {
             </button>
           </div>
 
-          <div className="password-strength-meter mt-2">
+          <div className="password-strength-meter">
             <div className="strength-bar" style={{ width: strength.width, backgroundColor: strength.color }} />
           </div>
 
@@ -132,6 +132,7 @@ export default function RegisterForm() {
           </ul>
         </div>
 
+        {/* Confirm Password */}
         <div className="mb-3">
           <label htmlFor="reg-confirm" className="form-label">Confirm Password</label>
           <div className="password-wrapper">
@@ -139,7 +140,9 @@ export default function RegisterForm() {
               type={showConfirm ? "text" : "password"}
               id="reg-confirm" className={confirmClass}
               placeholder="Re-enter your password" required
+              autoComplete="new-password"
               value={confirm} onChange={(e) => setConfirm(e.target.value)}
+              onPaste={(e) => e.preventDefault()}
             />
             <button type="button" className="toggle-password"
               onClick={() => setShowConfirm(!showConfirm)}
@@ -149,7 +152,7 @@ export default function RegisterForm() {
           </div>
         </div>
 
-        <button type="submit" className="btn btn-primary w-100 mt-3">Register</button>
+        <button type="submit" className="btn btn-primary w-100">Register</button>
       </form>
     </div>
   );

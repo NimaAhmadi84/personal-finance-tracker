@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login & Register</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>Welcome</h1>
+        <nav>
+            <button class="btn-register active">Register</button>
+            <button class="btn-login">Login</button>
+        </nav>
+    </header>
+
+    <main>
+
+        <!-- ========== REGISTER FORM ========== -->
+        <form id="register-form">
+            <h2>Create Account</h2>
+
+            <label for="reg-name">Username</label>
+            <input type="text" id="reg-name" name="username" autocomplete="username" placeholder="Enter your username" required>
+
+            <label for="reg-email">Email</label>
+            <input type="email" id="reg-email" name="email" autocomplete="email" placeholder="example@email.com" required>
+
+            <label for="reg-password">Password</label>
+            <div class="password-wrapper">
+                <input type="password" id="reg-password" name="password" autocomplete="new-password" placeholder="Enter your password" required>
+                <button type="button" class="toggle-password" data-target="reg-password" aria-label="Show password">👁️</button>
+            </div>
+
+            <div class="password-strength-meter">
+                <div class="strength-bar" id="strength-bar"></div>
+            </div>
+
+            <ul class="password-requirements">
+                <li id="req-length">✘ At least 8 characters</li>
+                <li id="req-lowercase">✘ One lowercase letter</li>
+                <li id="req-uppercase">✘ One uppercase letter</li>
+                <li id="req-number">✘ One number</li>
+                <li id="req-special">✘ One special character</li>
+                <li id="req-space">✘ No spaces</li>
+            </ul>
+
+            <label for="reg-confirm">Confirm Password</label>
+            <div class="password-wrapper">
+                <input type="password" id="reg-confirm" name="confirm_password" autocomplete="new-password" placeholder="Re-enter your password" required>
+                <button type="button" class="toggle-password" data-target="reg-confirm" aria-label="Show password">👁️</button>
+            </div>
+
+            <button type="submit">Register</button>
+        </form>
+
+        <!-- ========== LOGIN FORM ========== -->
+        <form id="login-form" class="hidden">
+            <h2>Welcome Back</h2>
+
+            <label for="login-email">Email</label>
+            <input type="email" id="login-email" name="email" autocomplete="email" placeholder="example@email.com" required>
+
+            <label for="login-password">Password</label>
+            <div class="password-wrapper">
+                <input type="password" id="login-password" name="password" autocomplete="current-password" placeholder="Enter your password" required>
+                <button type="button" class="toggle-password" data-target="login-password" aria-label="Show password">👁️</button>
+            </div>
+
+            <button type="submit">Log In</button>
+        </form>
+
+    </main>
+
+    <script src="script.js" defer></script>
+</body>
+</html>

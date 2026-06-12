@@ -179,3 +179,18 @@ main {
 .toggle-password:hover {
     color: var(--primary);
 }
+/* استایل فیلد تأیید رمز عبور */
+.neutral-input {
+    border-color: var(--border-color) !important;
+    box-shadow: none !important;
+}
+
+.valid-input {
+    border-color: var(--success) !important;
+    box-shadow: 0 0 10px rgba(0, 204, 68, 0.4) !important;
+}
+
+.invalid-input {
+    border-color: var(--primary) !important;
+    box-shadow: 0 0 10px rgba(255, 26, 26, 0.4) !important;
+}

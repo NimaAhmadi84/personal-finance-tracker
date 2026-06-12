@@ -27,7 +27,6 @@ body {
     color: var(--text-main);
 }
 
-/* فاصله‌ی مناسب از بالا */
 main {
     min-height: 100vh;
     display: flex;
@@ -35,34 +34,6 @@ main {
     align-items: center;
     justify-content: center;
     padding: 2rem 1rem;
-}
-
-/* استایل دکمه‌های سویچ (Register/Login) */
-.switch-buttons {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-    margin-bottom: 2rem;
-}
-
-.switch-buttons button {
-    background-color: transparent;
-    color: var(--primary);
-    border: 2px solid var(--primary);
-    padding: 0.7rem 2rem;
-    font-size: 1rem;
-    font-weight: bold;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    border-radius: 30px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.switch-buttons button.active,
-.switch-buttons button:hover {
-    background-color: var(--primary);
-    color: var(--bg-body);
 }
 
 /* کارت‌های فرم */
@@ -76,7 +47,6 @@ main {
     margin: 0 auto;
 }
 
-/* عناوین */
 .card h2 {
     text-align: center;
     color: var(--primary);
@@ -117,6 +87,30 @@ main {
 
 .btn-primary:hover {
     background-color: var(--primary-hover) !important;
+}
+
+/* استایل دکمه‌های تب (Register / Login) */
+.btn-outline-danger {
+    background-color: transparent;
+    color: var(--primary);
+    border: 2px solid var(--primary);
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-radius: 30px;
+    padding: 0.7rem 2rem;
+    transition: all 0.3s ease;
+}
+
+.btn-outline-danger.active {
+    background-color: var(--primary) !important;
+    border-color: var(--primary) !important;
+    color: var(--bg-body) !important;
+}
+
+.btn-outline-danger:hover {
+    background-color: var(--primary);
+    color: var(--bg-body);
 }
 
 /* نمایشگر قدرت رمز عبور */
@@ -179,6 +173,7 @@ main {
 .toggle-password:hover {
     color: var(--primary);
 }
+
 /* استایل فیلد تأیید رمز عبور */
 .neutral-input {
     border-color: var(--border-color) !important;

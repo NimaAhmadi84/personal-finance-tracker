@@ -252,14 +252,17 @@ header h1 {
     .password-strength-meter { height: 5px; }
     .password-requirements { font-size: 0.7rem; }
 }
+/* رفع مشکل لمس روی موبایل */
+.btn-outline-danger,
+.btn-primary,
+.toggle-password {
+    touch-action: manipulation;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+}
 
+/* حذف حالت hover ناخواسته روی دستگاه‌های لمسی */
 @media (hover: none) and (pointer: coarse) {
-    .btn-outline-danger,
-    .btn-primary,
-    .toggle-password {
-        touch-action: manipulation;
-    }
-
     .btn-outline-danger:not(.active):hover {
         background-color: transparent;
         color: var(--primary);

@@ -1,49 +1,181 @@
+/* globals.css – Personal Finance Tracker */
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+    --primary: #ff1a1a;
+    --primary-hover: #e60000;
+    --bg-body: #0b0b0b;
+    --bg-card: #1a1a1a;
+    --text-main: #f0f0f0;
+    --text-muted: #cccccc;
+    --text-dim: #999999;
+    --success: #00cc44;
+    --warning: #ffaa00;
+    --border-color: #333333;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-html {
-  height: 100%;
-}
-
-html,
-body {
-  max-width: 100vw;
-  overflow-x: hidden;
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
 }
 
 body {
-  min-height: 100%;
-  display: flex;
-  flex-direction: column;
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-body);
+    color: var(--text-main);
 }
 
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
+/* فاصله‌ی مناسب از بالا */
+main {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 1rem;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+/* استایل دکمه‌های سویچ (Register/Login) */
+.switch-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
+.switch-buttons button {
+    background-color: transparent;
+    color: var(--primary);
+    border: 2px solid var(--primary);
+    padding: 0.7rem 2rem;
+    font-size: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.switch-buttons button.active,
+.switch-buttons button:hover {
+    background-color: var(--primary);
+    color: var(--bg-body);
+}
+
+/* کارت‌های فرم */
+.card {
+    background-color: var(--bg-card);
+    border-radius: 16px;
+    padding: 2rem;
+    width: 100%;
+    max-width: 420px;
+    box-shadow: 0 0 20px rgba(255, 26, 26, 0.15);
+    margin: 0 auto;
+}
+
+/* عناوین */
+.card h2 {
+    text-align: center;
+    color: var(--primary);
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    letter-spacing: 1px;
+}
+
+/* فیلدهای ورودی */
+.form-label {
+    color: var(--text-muted);
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+.form-control {
+    background-color: var(--bg-body) !important;
+    border: 2px solid var(--border-color) !important;
+    color: var(--text-main) !important;
+}
+
+.form-control:focus {
+    border-color: var(--primary) !important;
+    box-shadow: 0 0 10px rgba(255, 26, 26, 0.4) !important;
+}
+
+/* دکمه‌ی ارسال */
+.btn-primary {
+    background-color: var(--primary) !important;
+    border: none !important;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-radius: 30px !important;
+    padding: 0.75rem;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-hover) !important;
+}
+
+/* نمایشگر قدرت رمز عبور */
+.password-strength-meter {
+    width: 100%;
+    height: 6px;
+    background-color: var(--border-color);
+    border-radius: 3px;
+    margin-top: 0.5rem;
+    overflow: hidden;
+}
+
+.strength-bar {
+    height: 100%;
+    width: 0%;
+    border-radius: 3px;
+    transition: width 0.3s ease, background-color 0.3s ease;
+}
+
+/* نیازمندی‌های رمز عبور */
+.password-requirements {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 0.5rem;
+    font-size: 0.8rem;
+    color: var(--text-dim);
+}
+
+.password-requirements li {
+    margin-bottom: 0.2rem;
+}
+
+.password-requirements li.valid {
+    color: var(--success);
+}
+
+.password-requirements li.invalid {
+    color: var(--primary);
+}
+
+/* دکمه‌ی نمایش رمز */
+.password-wrapper {
+    position: relative;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    font-size: 1.3rem;
+    cursor: pointer;
+    color: var(--text-muted);
+    padding: 5px;
+    line-height: 1;
+}
+
+.toggle-password:hover {
+    color: var(--primary);
 }

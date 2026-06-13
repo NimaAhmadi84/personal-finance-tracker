@@ -61,7 +61,7 @@ header h1 {
     background-color: var(--bg-card);
     border-radius: 16px;
     box-shadow: 0 0 20px rgba(255, 26, 26, 0.15);
-    border: none; /* حذف border پیش‌فرض بوت‌استرپ */
+    border: none; /* padding حذف شد */
 }
 
 .card h2 {

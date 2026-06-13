@@ -13,7 +13,7 @@ export default function LoginForm() {
   };
 
   return (
-    <div className="card">
+   <div className="card p-3 p-md-4">
       <h2>Welcome Back</h2>
       <form onSubmit={handleSubmit}>
         <div className="mb-3">

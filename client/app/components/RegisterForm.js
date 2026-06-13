@@ -62,7 +62,7 @@ export default function RegisterForm() {
   };
 
   return (
-    <div className="card">
+    <div className="card p-3 p-md-4">
       <h2>Create Account</h2>
       <form onSubmit={handleSubmit}>
         {/* Username */}

@@ -15,12 +15,12 @@ export default function AuthPage() {
 
   return (
     <>
-      <header className="text-center my-5">
+      <header className="text-center my-3 my-md-5">
         <h1 className="display-4 fw-bold text-uppercase text-white">Welcome</h1>
-        <div className="d-flex justify-content-center gap-3 mt-4">
+        <div className="d-flex justify-content-center gap-2 gap-md-3 mt-3 mt-md-4">
           <button
             type="button"
-            className={`btn btn-outline-danger rounded-pill px-4 py-2 fw-bold ${
+            className={`btn btn-outline-danger rounded-pill px-3 px-md-4 py-1 py-md-2 fw-bold ${
               activeTab === "register" ? "active" : ""
             }`}
             onClick={(e) => switchTab("register", e)}
@@ -30,7 +30,7 @@ export default function AuthPage() {
           </button>
           <button
             type="button"
-            className={`btn btn-outline-danger rounded-pill px-4 py-2 fw-bold ${
+            className={`btn btn-outline-danger rounded-pill px-3 px-md-4 py-1 py-md-2 fw-bold ${
               activeTab === "login" ? "active" : ""
             }`}
             onClick={(e) => switchTab("login", e)}
@@ -41,8 +41,12 @@ export default function AuthPage() {
         </div>
       </header>
 
-      <main className="d-flex justify-content-center">
-        {activeTab === "register" ? <RegisterForm /> : <LoginForm />}
+      <main className="container">
+        <div className="row justify-content-center">
+          <div className="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-5">
+            {activeTab === "register" ? <RegisterForm /> : <LoginForm />}
+          </div>
+        </div>
       </main>
     </>
   );

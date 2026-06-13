@@ -1,7 +1,8 @@
 "use client";
 
 import { useState, useEffect } from "react";
-
+import { useRouter } from "next/navigation";
+import { register } from "../lib/auth";
 export default function RegisterForm() {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
@@ -49,18 +50,23 @@ export default function RegisterForm() {
   const confirmClass = !confirm
     ? "form-control neutral-input"
     : confirm === password
-    ? "form-control valid-input"
-    : "form-control invalid-input";
+      ? "form-control valid-input"
+      : "form-control invalid-input";
 
-  const handleSubmit = (e) => {
+const handleSubmit = (e) => {
     e.preventDefault();
     if (password !== confirm) {
       alert("Passwords do not match!");
       return;
     }
-    alert(`Registered as ${username}`);
-  };
-
+    const result = register(username, email, password);
+    if (result.success) {
+      router.push("/dashboard");
+    } else {
+      alert(result.message);
+    }
+};
+  const router = useRouter();
   return (
     <div className="card p-3 p-md-4">
       <h2>Create Account</h2>

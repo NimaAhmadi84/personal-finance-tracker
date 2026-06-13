@@ -1,17 +1,23 @@
 "use client";
 
 import { useState } from "react";
-
+import { useRouter } from "next/navigation";
+import { login } from "../lib/auth";
 export default function LoginForm() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
 
-  const handleSubmit = (e) => {
+const handleSubmit = (e) => {
     e.preventDefault();
-    alert(`Logged in as ${email}`);
-  };
-
+    const result = login(email, password);
+    if (result.success) {
+      router.push("/dashboard");
+    } else {
+      alert(result.message);
+    }
+};
+const router = useRouter();
   return (
    <div className="card p-3 p-md-4">
       <h2>Welcome Back</h2>

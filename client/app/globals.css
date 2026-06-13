@@ -33,7 +33,7 @@ header h1 {
     letter-spacing: 2px;
 }
 
-/* ===== دکمه‌های تب Register/Login (شبیه nav قدیم) ===== */
+/* ===== دکمه‌های تب Register/Login ===== */
 .btn-outline-danger {
     background-color: transparent;
     color: var(--primary);
@@ -56,15 +56,12 @@ header h1 {
     color: var(--bg-body);
 }
 
-/* ===== CARD (جایگزین main قدیم) ===== */
+/* ===== CARD (فرم‌ها) ===== */
 .card {
     background-color: var(--bg-card);
     border-radius: 16px;
-    padding: 2rem;
-    width: 100%;
-    max-width: 420px;
     box-shadow: 0 0 20px rgba(255, 26, 26, 0.15);
-    margin: 0 auto;
+    border: none; /* حذف border پیش‌فرض بوت‌استرپ */
 }
 
 .card h2 {
@@ -75,7 +72,7 @@ header h1 {
     letter-spacing: 1px;
 }
 
-/* ===== فیلدهای ورودی (حفظ استایل قدیم) ===== */
+/* ===== فیلدهای ورودی ===== */
 .form-label {
     font-size: 0.9rem;
     font-weight: bold;
@@ -99,7 +96,7 @@ header h1 {
     box-shadow: 0 0 10px rgba(255, 26, 26, 0.4) !important;
 }
 
-/* فیکس اتوفیل گوگل (دقیقاً مثل نسخه اصلی) */
+/* فیکس اتوفیل گوگل */
 .form-control:-webkit-autofill,
 .form-control:-webkit-autofill:hover,
 .form-control:-webkit-autofill:focus,
@@ -216,43 +213,7 @@ header h1 {
     box-shadow: 0 0 10px rgba(255, 26, 26, 0.4) !important;
 }
 
-/* ========== RESPONSIVE (همان Media Query های قدیم) ========== */
-@media (min-width: 1400px) {
-    .card {
-        max-width: 480px;
-        padding: 2.5rem;
-    }
-    .card h2 { font-size: 2rem; }
-    .form-control { padding: 1rem 1.2rem; font-size: 1.1rem; }
-    .btn-primary { padding: 1rem; font-size: 1.2rem; }
-}
-
-@media (max-width: 1024px) {
-    .card { max-width: 400px; }
-}
-
-@media (max-width: 768px) {
-    .card { padding: 1.8rem; }
-    .card h2 { font-size: 1.6rem; }
-    .form-label { font-size: 0.85rem; }
-    .form-control { padding: 0.75rem 0.9rem; font-size: 0.95rem; }
-    .btn-primary { padding: 0.75rem; font-size: 1rem; }
-    .toggle-password { font-size: 1.2rem; right: 8px; }
-    .password-requirements { font-size: 0.75rem; }
-}
-
-@media (max-width: 480px) {
-    .btn-outline-danger { padding: 0.45rem 1rem; font-size: 0.8rem; }
-    .card { padding: 1.2rem; }
-    .card h2 { font-size: 1.4rem; }
-    .form-label { font-size: 0.8rem; }
-    .form-control { padding: 0.65rem 0.75rem; font-size: 0.9rem; border-radius: 6px; }
-    .btn-primary { padding: 0.7rem; font-size: 0.95rem; }
-    .toggle-password { font-size: 1.1rem; right: 6px; }
-    .password-strength-meter { height: 5px; }
-    .password-requirements { font-size: 0.7rem; }
-}
-/* رفع مشکل لمس روی موبایل */
+/* ========== رفع مشکل لمس در موبایل ========== */
 .btn-outline-danger,
 .btn-primary,
 .toggle-password {
@@ -261,7 +222,6 @@ header h1 {
     -webkit-tap-highlight-color: transparent;
 }
 
-/* حذف حالت hover ناخواسته روی دستگاه‌های لمسی */
 @media (hover: none) and (pointer: coarse) {
     .btn-outline-danger:not(.active):hover {
         background-color: transparent;

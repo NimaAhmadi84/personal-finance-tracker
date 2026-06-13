@@ -1,17 +1,11 @@
 "use client";
 
-import { useState, useCallback } from "react";
+import { useState } from "react";
 import RegisterForm from "./RegisterForm";
 import LoginForm from "./LoginForm";
 
 export default function AuthPage() {
   const [activeTab, setActiveTab] = useState("register");
-
-  const switchTab = useCallback((tab, e) => {
-    e.preventDefault();
-    e.stopPropagation();
-    setActiveTab(tab);
-  }, []);
 
   return (
     <>
@@ -23,8 +17,7 @@ export default function AuthPage() {
             className={`btn btn-outline-danger rounded-pill px-3 px-md-4 py-1 py-md-2 fw-bold ${
               activeTab === "register" ? "active" : ""
             }`}
-            onClick={(e) => switchTab("register", e)}
-            onTouchEnd={(e) => switchTab("register", e)}
+            onClick={() => setActiveTab("register")}
           >
             Register
           </button>
@@ -33,8 +26,7 @@ export default function AuthPage() {
             className={`btn btn-outline-danger rounded-pill px-3 px-md-4 py-1 py-md-2 fw-bold ${
               activeTab === "login" ? "active" : ""
             }`}
-            onClick={(e) => switchTab("login", e)}
-            onTouchEnd={(e) => switchTab("login", e)}
+            onClick={() => setActiveTab("login")}
           >
             Login
           </button>
